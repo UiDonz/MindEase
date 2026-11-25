@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindEase</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+<div class="app">
+  <!-- ============ SIDEBAR (becomes bottom tab bar on mobile) ============ -->
+  <aside class="sidebar">
+    <a class="brand" href="/app">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></span>
+      MindEase
+    </a>
+    <nav class="nav" aria-label="Main">
+      <button data-view="dashboard" class="active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>Home</button>
+      <button data-view="chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Talk</button>
+      <button data-view="checkin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>Check-in</button>
+      <button data-view="thoughts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>Thoughts</button>
+      <button data-view="insights"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>Insights</button>
+      <button data-view="settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg>Account</button>
+    </nav>
+    <div class="sidebar-foot">
+      <button class="help-btn" data-action="crisis">Need help now?</button>
+      <div class="user-pill"><span class="avatar" id="avatar">?</span><div><strong id="username-label">…</strong><div class="small muted"><a href="#" data-action="signout">Sign out</a></div></div></div>
+    </div>
+  </aside>
+
+  <div>
+    <!-- Mobile header -->
+    <header class="mobile-top">
+      <a class="brand" href="/app"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></span>MindEase</a>
+      <div class="right">
+        <button class="help-btn btn-sm" data-action="crisis">Help</button>
+        <button class="avatar" id="avatar-mobile" data-view-link="settings" style="border:0;cursor:pointer" aria-label="Account">?</button>
+      </div>
+    </header>
+
+    <main class="main">
+      <!-- ================= DASHBOARD ================= -->
+      <section id="view-dashboard" class="view">
+        <div class="view-head">
+          <h1 id="greeting">Hello</h1>
+          <p class="muted" id="greeting-sub">Here's how you've been doing.</p>
+        </div>
+        <div class="stats">
+          <div class="card stat"><div class="label">Avg mood · 7d</div><div class="value" id="stat-mood">–</div><div class="delta" id="stat-mood-delta"></div></div>
+          <div class="card stat"><div class="label">Check-in streak</div><div class="value" id="stat-streak">0</div><div class="delta muted">days in a row</div></div>
+          <div class="card stat"><div class="label">Thought records</div><div class="value" id="stat-thoughts">0</div><div class="delta muted">reframes completed</div></div>
+          <div class="card stat"><div class="label">Sessions</div><div class="value" id="stat-sessions">0</div><div class="delta muted">conversations</div></div>
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Mood &amp; energy · last 30 days</h3>
+            <div class="chart-wrap" id="mood-chart"></div>
+            <div class="chart-legend"><span style="color:var(--sage)">Mood</span><span style="color:var(--clay)">Energy</span></div>
+          </div>
+          <div class="card">
+            <h3>Quick start</h3>
+            <div class="quick-actions">
+              <button class="btn btn-primary" data-view-link="checkin">Log today's check-in</button>
+              <button class="btn btn-ghost" data-view-link="chat">Talk something through</button>
+              <button class="btn btn-ghost" data-view-link="thoughts">Challenge a thought</button>
+            </div>
+            <div class="result-section">
+              <h4>Most frequent emotions (30d)</h4>
+              <div class="chip-list" id="top-emotions"><span class="muted small">No check-ins yet.</span></div>
+            </div>
+            <div class="result-section">
+              <h4>Your common thinking traps</h4>
+              <div class="chip-list" id="top-distortions"><span class="muted small">Complete a thought record to see these.</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CHAT ================= -->
+      <section id="view-chat" class="view hidden">
+        <div class="view-head">
+          <h1>Talk it through</h1>
+          <p class="muted">MindEase knows your recent check-ins, so you don't have to start from scratch.</p>
+        </div>
+        <div id="chat-crisis"></div>
+        <div class="mobile-convo-bar">
+          <select id="convo-select" aria-label="Choose a session"></select>
+          <button class="btn btn-primary btn-sm" data-action="new-convo">New</button>
+        </div>
+        <div class="chat-layout">
+          <div class="card convo-sidebar">
+            <div style="padding:1rem 1rem 0"><button class="btn btn-primary btn-block btn-sm" data-action="new-convo">+ New session</button></div>
+            <div class="convo-list" id="convo-list"></div>
+          </div>
+          <div class="card chat-panel">
+            <div class="messages" id="messages" aria-live="polite"></div>
+            <form class="composer" id="composer">
+              <label for="chat-input" class="sr-only">Message</label>
+              <textarea id="chat-input" placeholder="What's on your mind?" rows="1" maxlength="2000"></textarea>
+              <button class="btn btn-primary" type="submit" id="send-btn">Send</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CHECK-IN ================= -->
+      <section id="view-checkin" class="view hidden">
+        <div class="view-head">
+          <h1>Daily check-in</h1>
+          <p class="muted">Thirty seconds a day builds the picture MindEase uses to understand you.</p>
+        </div>
+        <div id="checkin-crisis"></div>
+        <div class="grid-2">
+          <form class="card" id="checkin-form">
+            <div class="field">
+              <label for="mood">Mood</label>
+              <div class="slider-row"><span class="mood-face" id="mood-face">🙂</span><input type="range" id="mood" min="1" max="10" value="6" /><span class="slider-value" id="mood-val">6</span></div>
+            </div>
+            <div class="field">
+              <label for="energy">Energy</label>
+              <div class="slider-row"><span class="mood-face">⚡</span><input type="range" id="energy" min="1" max="10" value="5" /><span class="slider-value" id="energy-val">5</span></div>
+            </div>
+            <div class="field">
+              <label for="sleep">Hours slept last night <span class="muted">(optional)</span></label>
+              <input type="number" id="sleep" min="0" max="24" step="0.5" placeholder="e.g. 7.5" />
+            </div>
+            <div class="field">
+              <label>What are you feeling?</label>
+              <div class="chip-list" id="emotion-chips"></div>
+            </div>
+            <div class="field">
+              <label for="note">Anything on your mind? <span class="muted">(optional)</span></label>
+              <textarea id="note" maxlength="1000" placeholder="A sentence or two is plenty."></textarea>
+            </div>
+            <button class="btn btn-primary btn-block" type="submit">Save check-in</button>
+          </form>
+          <div class="card">
+            <h3>Recent check-ins</h3>
+            <div class="history-list" id="checkin-history"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= THOUGHT RECORD ================= -->
+      <section id="view-thoughts" class="view hidden">
+        <div class="view-head">
+          <h1>Thought record</h1>
+          <p class="muted">A classic CBT exercise: catch a stressful thought, spot the thinking traps, and find a more balanced view.</p>
+        </div>
+        <div id="thought-crisis"></div>
+        <div class="grid-2">
+          <div>
+            <form class="card" id="thought-form">
+              <div class="field">
+                <label for="situation">1. What happened?</label>
+                <textarea id="situation" maxlength="1000" placeholder="e.g. My manager didn't reply to my message all day."></textarea>
+              </div>
+              <div class="field">
+                <label for="auto-thought">2. What went through your mind?</label>
+                <textarea id="auto-thought" maxlength="1000" placeholder="e.g. She's annoyed with me. I'm probably getting fired."></textarea>
+              </div>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="t-emotion">3. Main emotion</label>
+                  <select id="t-emotion">
+                    <option>Anxious</option><option>Sad</option><option>Angry</option><option>Ashamed</option>
+                    <option>Guilty</option><option>Frustrated</option><option>Lonely</option><option>Hopeless</option><option>Jealous</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="intensity">Intensity: <span id="intensity-val">60</span>%</label>
+                  <input type="range" id="intensity" min="0" max="100" step="5" value="60" />
+                </div>
+              </div>
+              <button class="btn btn-primary btn-block" type="submit" id="thought-btn">Analyze my thought</button>
+            </form>
+            <div id="thought-result"></div>
+          </div>
+          <div class="card">
+            <h3>Past records</h3>
+            <div id="thought-history"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= INSIGHTS ================= -->
+      <section id="view-insights" class="view hidden">
+        <div class="view-head" style="display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;flex-wrap:wrap">
+          <div>
+            <h1>Your insights</h1>
+            <p class="muted" style="margin:0">AI analysis of your last 14 days of check-ins, thought records, and conversations.</p>
+          </div>
+          <button class="btn btn-primary" data-action="load-insights">Generate insights</button>
+        </div>
+        <div id="insights-body" class="card empty">
+          <p>Press <strong>Generate insights</strong> to see patterns in your recent data.</p>
+        </div>
+      </section>
+
+      <!-- ================= SETTINGS ================= -->
+      <section id="view-settings" class="view hidden">
+        <div class="view-head"><h1>Account</h1></div>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Profile</h3>
+            <p><span class="muted">Username:</span> <strong id="acct-username"></strong></p>
+            <p><span class="muted">Email:</span> <strong id="acct-email"></strong></p>
+            <p><span class="muted">Member since:</span> <strong id="acct-since"></strong></p>
+            <button class="btn btn-ghost" data-action="signout">Sign out</button>
+          </div>
+          <div class="card">
+            <h3>Delete account</h3>
+            <p class="muted small">This permanently deletes your account and every conversation, check-in, and thought record. It can't be undone.</p>
+            <form id="delete-form">
+              <div class="field"><label for="delete-pw">Confirm with your password</label><input type="password" id="delete-pw" autocomplete="current-password" /></div>
+              <button class="btn btn-danger" type="submit">Delete everything</button>
+            </form>
+          </div>
+        </div>
+        <p class="small muted" style="margin-top:1.5rem">MindEase is a self-help tool and is not a substitute for professional mental health care. AI responses can be wrong.</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<!-- Crisis resources modal -->
+<div class="modal-backdrop hidden" id="crisis-modal" role="dialog" aria-modal="true" aria-labelledby="crisis-title">
+  <div class="card modal">
+    <h2 id="crisis-title">You're not alone</h2>
+    <p class="muted">If you're struggling or thinking about harming yourself, please reach out to someone right now. These services are free and confidential.</p>
+    <ul class="crisis" style="list-style:none;display:grid;gap:.5rem" id="crisis-list"></ul>
+    <button class="btn btn-ghost btn-block" data-action="close-crisis">Close</button>
+  </div>
+</div>
+
+<script src="/js/common.js"></script>
+<script src="/js/chart.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>

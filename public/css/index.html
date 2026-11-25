@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindEase — Your AI wellness companion</title>
+  <meta name="description" content="MindEase combines AI conversation, mood tracking, and CBT tools to help you understand your thoughts and feel better." />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="brand" href="/">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></span>
+      MindEase
+    </a>
+    <div class="actions">
+      <a class="btn btn-ghost" href="/signin">Sign in</a>
+      <a class="btn btn-primary" href="/signup">Get started</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <span class="eyebrow">AI wellness companion</span>
+      <h1>A calmer mind starts with <em>understanding</em> it.</h1>
+      <p class="lead">MindEase listens like a friend, remembers how you've been feeling, and uses proven CBT techniques to help you untangle difficult thoughts — any time of day.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="/signup">Create your free space</a>
+        <a class="btn btn-ghost" href="#features">See how it works</a>
+      </div>
+    </div>
+    <div class="hero-preview" aria-hidden="true">
+      <div class="preview-bubble user">I bombed my presentation. Everyone probably thinks I'm incompetent now.</div>
+      <div class="preview-meta"><span class="chip chip-static">embarrassed</span><span class="chip chip-static">anxious</span></div>
+      <div class="preview-bubble ai">That sounds like a really painful moment. I noticed your check-ins this week mentioned only 5 hours of sleep — that alone makes everything feel heavier. When you say "everyone" thinks that, is that something you know, or something your mind is predicting?</div>
+      <div class="preview-bubble ai" style="border:1px dashed var(--sage);background:#fff"><strong style="color:var(--sage-dark);font-size:.85rem">Suggested: Thought check · Mind reading</strong></div>
+    </div>
+  </header>
+
+  <section class="section" id="features">
+    <div class="section-head">
+      <h2>More than a chatbot</h2>
+      <p class="muted">Four tools that work together, so every conversation builds on what MindEase already knows about you.</p>
+    </div>
+    <div class="features">
+      <div class="card feature">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3>Personal conversations</h3>
+        <p>Talk it out with a companion that detects your emotions and suggests coping exercises when they'd actually help.</p>
+      </div>
+      <div class="card feature">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div>
+        <h3>Mood tracking</h3>
+        <p>Quick daily check-ins for mood, energy, sleep and emotions, charted so you can see your trends.</p>
+      </div>
+      <div class="card feature">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.54Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.54Z"/></svg></div>
+        <h3>CBT thought records</h3>
+        <p>Write down a stressful thought and get the thinking traps identified, evidence weighed, and a balanced reframe.</p>
+      </div>
+      <div class="card feature">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3m6.36-.36-2.12 2.12M21 12h-3m.36 6.36-2.12-2.12M12 21v-3m-6.36.36 2.12-2.12M3 12h3m-.36-6.36 2.12 2.12"/></svg></div>
+        <h3>Pattern insights</h3>
+        <p>AI looks across two weeks of your data to surface patterns — like how sleep affects your mood — and next steps.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2>Why not just use a general chatbot?</h2>
+    </div>
+    <div class="compare">
+      <div class="card">
+        <h3>General AI chat</h3>
+        <ul class="muted">
+          <li>Starts from zero every conversation</li>
+          <li>No idea how your week has actually gone</li>
+          <li>Free-form text you have to interpret yourself</li>
+          <li>No structured exercises or progress over time</li>
+        </ul>
+      </div>
+      <div class="card highlight">
+        <h3>MindEase</h3>
+        <ul>
+          <li>Uses your mood history and recurring thinking traps to personalize replies</li>
+          <li>Structured CBT worksheets with saved results</li>
+          <li>Charts and AI-written insights from your own data</li>
+          <li>Built-in crisis detection that surfaces real help immediately</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="disclaimer-band">
+      <strong style="font-size:1.4rem">♡</strong>
+      <div>
+        <strong>MindEase is a self-help tool, not a replacement for professional care.</strong>
+        <p class="small" style="margin:.25rem 0 0">If you're in crisis or thinking about harming yourself, call or text <a href="tel:988"><strong>988</strong></a> (US) or your local emergency number right away.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    © <span id="year"></span> MindEase · Built with Google Gemini · A student project
+  </footer>
+  <script src="/js/landing.js"></script>
+</body>
+</html>
